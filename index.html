@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f6">
+    <meta name="description" content="A calmer, clearer way to coordinate connected healthcare.">
+    <title>Careflow — Healthcare, in sync</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"/><circle cx="9.5" cy="7.5" r="4"/><path d="M17 4a4 4 0 0 1 0 7.75M21 20v-1.5a4 4 0 0 0-3-3.87"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M9 18h2a4 4 0 0 0 4-4v-4a4 4 0 0 1 4-4"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3ZM19 14l1.1 2.9L23 18l-2.9 1.1L19 22l-1.1-2.9L15 18l2.9-1.1L19 14Z"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.6a8 8 0 0 1-1.5.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.5-.9l-1.7.6L6.3 16l1.4-1.1a8 8 0 0 1 0-1.8L6.3 12l1.4-2.4 1.7.6a8 8 0 0 1 1.5-.9l.3-1.8H14l.3 1.8a8 8 0 0 1 1.5.9l1.7-.6 1.4 2.4-1.4 1.1a8 8 0 0 1-.1 1.9Z" transform="translate(-1 -1)"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.7c0 5.5-8.8 11-8.8 11s-8.8-5.5-8.8-11a4.7 4.7 0 0 1 8.8-2.2 4.7 4.7 0 0 1 8.8 2.2Z"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l1.6-3.1A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/></symbol>
+      <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5M15 12H3M12 3h6a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-6"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    </svg>
+
+    <main class="auth-shell" id="authShell">
+      <section class="auth-story">
+        <div class="auth-brand" role="img" aria-label="Careflow">
+          <span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span>
+          <span>careflow<span class="brand-period">.</span><small>CONNECTED CARE</small></span>
+        </div>
+        <div class="auth-story-copy">
+          <span class="welcome-kicker"><span class="pulse-dot"></span> A CALMER WAY TO CARE</span>
+          <h1>Better care starts<br>with <em>feeling connected.</em></h1>
+          <p>Your care workspace brings appointments, patient journeys, and helpful health guidance together.</p>
+          <div class="auth-promise"><span><svg class="icon"><use href="#i-shield"/></svg></span><div><strong>Your account stays yours.</strong><small>Your password is protected. Your demo appointments stay private to your account.</small></div></div>
+        </div>
+        <div class="auth-art" aria-hidden="true">
+          <span class="auth-art-glow"></span>
+          <svg class="care-flow" viewBox="0 0 200 200" fill="none">
+            <circle class="flow-path" cx="100" cy="100" r="82"/>
+            <circle class="flow-path flow-path-b" cx="100" cy="100" r="58"/>
+          </svg>
+          <span class="auth-art-ring"></span>
+          <span class="auth-art-ring"></span>
+          <span class="orbit-dot od-1"></span>
+          <span class="orbit-dot od-2"></span>
+          <span class="orbit-dot od-3"></span>
+          <span class="auth-art-orb"><svg class="icon"><use href="#i-heart"/></svg></span>
+          <span class="auth-art-spark">✳</span>
+        </div>
+        <p class="auth-story-footer">Careflow <span>·</span> Thoughtful care, connected.</p>
+      </section>
+      <section class="auth-panel">
+        <div class="auth-card">
+          <span class="section-eyebrow" id="authEyebrow">WELCOME BACK</span>
+          <h2 id="authTitle">Sign in to Careflow</h2>
+          <p class="auth-subtitle" id="authSubtitle">Your connected care workspace is ready.</p>
+          <div class="auth-tabs" role="tablist" aria-label="Account access">
+            <button class="auth-tab active" id="loginTab" type="button" role="tab" aria-selected="true">Sign in</button>
+            <button class="auth-tab" id="registerTab" type="button" role="tab" aria-selected="false">Create account</button>
+          </div>
+          <form id="loginForm" class="auth-form">
+            <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required></label>
+            <label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" maxlength="128" required></label>
+            <button class="button button-primary auth-submit" type="submit">Sign in <svg class="icon"><use href="#i-arrow"/></svg></button>
+          </form>
+          <form id="registerForm" class="auth-form" hidden>
+            <label>Your name<input type="text" name="displayName" autocomplete="name" placeholder="e.g. Alex Morgan" minlength="2" maxlength="60" required></label>
+            <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required></label>
+            <label>Create a password<input type="password" name="password" autocomplete="new-password" placeholder="At least 12 characters" minlength="12" maxlength="128" required></label>
+            <p class="password-hint"><svg class="icon"><use href="#i-shield"/></svg> Use 12 or more characters. Your password is securely hashed.</p>
+            <button class="button button-primary auth-submit" type="submit">Create secure account <svg class="icon"><use href="#i-arrow"/></svg></button>
+          </form>
+          <p class="auth-error" id="authError" role="alert" hidden></p>
+          <p class="auth-privacy"><svg class="icon"><use href="#i-shield"/></svg> Fictional demo patients only. Do not enter real patient or medical information.</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="app-shell" id="appShell" hidden>
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="Careflow home" data-nav="overview">
+          <span class="brand-mark"><svg class="icon"><use href="#i-heart"/></svg></span>
+          <span>careflow<span class="brand-period">.</span><small>CONNECTED CARE</small></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-link active" type="button" data-nav="overview"><svg class="icon"><use href="#i-grid"/></svg><span>Overview</span></button>
+          <button class="nav-link" type="button" data-nav="pathways"><svg class="icon"><use href="#i-route"/></svg><span>Care pathways</span></button>
+          <button class="nav-link" type="button" data-nav="appointments"><svg class="icon"><use href="#i-calendar"/></svg><span>Appointments</span></button>
+          <button class="nav-link" type="button" data-nav="insights"><svg class="icon"><use href="#i-spark"/></svg><span>AI insights</span><span class="nav-dot"></span></button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-tip">
+          <div class="tip-icon"><svg class="icon"><use href="#i-spark"/></svg></div>
+          <p>Your care, connected.</p>
+          <span>One clearer view for every step of the patient journey.</span>
+          <button type="button" class="tip-link" data-nav="pathways">Explore pathways <svg class="icon"><use href="#i-arrow"/></svg></button>
+          <span class="tip-orbit orbit-one"></span><span class="tip-orbit orbit-two"></span>
+        </div>
+        <button class="nav-link settings-link" type="button" data-nav="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Settings</span></button>
+        <div class="sidebar-user">
+          <div class="avatar avatar-self" id="userAvatar">AM</div>
+          <span class="user-details"><strong id="userName">Account</strong><small>Signed in</small></span>
+          <button class="sign-out-button" id="signOutButton" type="button" aria-label="Sign out"><svg class="icon"><use href="#i-logout"/></svg><span>Sign out</span></button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button type="button" class="icon-button mobile-menu" id="mobileMenu" aria-label="Open navigation"><svg class="icon"><use href="#i-menu"/></svg></button>
+          <div class="breadcrumb"><span>Workspace</span><svg class="icon"><use href="#i-chevron"/></svg><strong id="breadcrumbCurrent">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <svg class="icon"><use href="#i-search"/></svg>
+              <input id="globalSearch" type="search" placeholder="Search patients, care plans..." autocomplete="off" aria-label="Search patients and care plans">
+              <kbd>Ctrl K</kbd>
+              <span class="search-results" id="searchResults" hidden></span>
+            </label>
+            <button type="button" class="icon-button notification-button" id="notificationButton" aria-label="Notifications"><svg class="icon"><use href="#i-bell"/></svg><span class="notification-dot"></span></button>
+            <div class="topbar-divider"></div>
+            <div class="profile-chip"><span class="avatar avatar-self" id="profileAvatar" aria-hidden="true">AM</span><span id="profileName">Account</span><svg class="icon"><use href="#i-chevron"/></svg></div>
+          </div>
+        </header>
+
+        <div class="page-wrap">
+          <section class="view-section" id="overviewView">
+            <div class="page-heading">
+              <div><p class="eyebrow" id="todayLabel">YOUR CARE COMMAND CENTER</p><h1><span id="greetingText">Good morning</span> <span class="wave">✳</span></h1><p class="heading-subtitle">A little more connected. A lot more human.</p></div>
+              <button class="button button-primary" type="button" data-open-appointment><svg class="icon"><use href="#i-plus"/></svg> New appointment</button>
+            </div>
+
+            <section class="welcome-card" aria-label="Welcome to your care overview">
+              <div class="welcome-copy">
+                <span class="welcome-kicker"><span class="pulse-dot"></span> YOUR DAY, IN SYNC</span>
+                <h2>Care works better<br>when it <em>connects.</em></h2>
+                <p>See the whole picture, catch what matters, and make every next step feel a little easier.</p>
+                <button class="button button-light" type="button" data-nav="pathways">Explore care pathways <svg class="icon"><use href="#i-arrow"/></svg></button>
+              </div>
+              <div class="welcome-art" aria-hidden="true">
+                <span class="art-glow"></span>
+                <svg class="care-flow welcome-flow" viewBox="0 0 240 240" fill="none">
+                  <circle class="flow-path" cx="120" cy="120" r="96"/>
+                  <circle class="flow-path flow-path-b" cx="120" cy="120" r="68"/>
+                  <path class="flow-link" d="M42 128 C 70 70, 150 58, 188 92"/>
+                  <path class="flow-link flow-link-b" d="M48 150 C 92 190, 168 176, 198 128"/>
+                </svg>
+                <span class="art-ring ring-outer"></span><span class="art-ring ring-middle"></span><span class="art-ring ring-inner"></span>
+                <span class="orbit-dot od-1"></span>
+                <span class="orbit-dot od-2"></span>
+                <span class="orbit-dot od-3"></span>
+                <span class="art-node node-a"><svg class="icon"><use href="#i-users"/></svg></span>
+                <span class="art-node node-b"><svg class="icon"><use href="#i-calendar"/></svg></span>
+                <span class="art-orb"><svg class="icon"><use href="#i-heart"/></svg></span>
+                <span class="art-spark spark-a">✳</span><span class="art-spark spark-b">✦</span>
+                <span class="art-caption"><span></span> Every detail, connected</span>
+              </div>
+            </section>
+
+            <section class="stats-grid" aria-label="Today's care summary">
+              <article class="stat-card"><div class="stat-top"><span class="stat-icon mint"><svg class="icon"><use href="#i-users"/></svg></span><span class="stat-tag">SAMPLE DATA</span></div><div class="stat-value"><span id="patientCount">—</span></div><div class="stat-label">Fictional sample patients</div><div class="stat-foot"><span class="mini-avatars" id="patientInitials" aria-hidden="true"></span><span id="patientTeamSummary">Loading from database...</span></div></article>
+              <article class="stat-card"><div class="stat-top"><span class="stat-icon lavender"><svg class="icon"><use href="#i-calendar"/></svg></span><span class="stat-tag">TODAY</span></div><div class="stat-value"><span id="appointmentCount">—</span> <span class="stat-unit">appointments</span></div><div class="stat-label">On your schedule today</div><div class="stat-foot"><span class="stat-sub-icon"><svg class="icon"><use href="#i-clock"/></svg></span><span id="nextAppointmentLabel">Loading schedule...</span></div></article>
+              <article class="stat-card"><div class="stat-top"><span class="stat-icon peach"><svg class="icon"><use href="#i-route"/></svg></span><span class="stat-tag">SAMPLE DATA</span></div><div class="stat-value"><span id="pathwayCount">—</span> <span class="stat-unit">pathways</span></div><div class="stat-label">Represented in sample records</div><button class="stat-action" type="button" data-nav="pathways">View pathways <svg class="icon"><use href="#i-arrow"/></svg></button></article>
+            </section>
+
+            <div class="content-grid">
+              <div class="main-column">
+                <section class="panel appointments-panel">
+                  <div class="panel-heading"><div><span class="section-eyebrow">YOUR SCHEDULE</span><h2>Coming up today</h2></div><button class="text-button" type="button" data-nav="appointments">Full schedule <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+                  <div class="appointment-list" id="appointmentList"></div>
+                  <div class="schedule-footer"><span><span class="tiny-green-dot"></span> All times shown in your local timezone</span><button class="icon-button" type="button" data-nav="appointments" aria-label="View all appointments"><svg class="icon"><use href="#i-arrow"/></svg></button></div>
+                </section>
+
+                <section class="panel pathways-panel">
+                  <div class="panel-heading"><div><span class="section-eyebrow">CONNECTED JOURNEYS</span><h2>Active care pathways</h2></div><button class="text-button" type="button" data-nav="pathways">View all <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+                  <div class="pathway-list" id="pathwayOverviewList"></div>
+                </section>
+              </div>
+
+              <aside class="side-column">
+                <section class="assistant-card" aria-label="Careflow AI assistant">
+                  <div class="assistant-heading"><div class="assistant-identity"><span class="assistant-mark"><svg class="icon"><use href="#i-spark"/></svg></span><div><h2>Careflow AI</h2><span><i></i> AI health guide · trusted sources</span></div></div><button class="icon-button assistant-menu" type="button" aria-label="AI assistant information" id="aiInfoButton"><svg class="icon"><use href="#i-more"/></svg></button></div>
+                  <div class="assistant-intro" id="assistantIntro"><span class="assistant-greeting-icon"><svg class="icon"><use href="#i-spark"/></svg></span><h3>Health questions,<br>clearer answers.</h3><p>Ask about common conditions, symptoms, medicines, nutrition, sleep, and wellbeing—in English or Hindi.</p></div>
+                  <div class="suggestion-label">ASK A HEALTH QUESTION</div>
+                  <div class="prompt-chips">
+                    <button type="button" class="prompt-chip" data-prompt="What can cause a fever?">Ask about fever <span>↗</span></button>
+                    <button type="button" class="prompt-chip" data-prompt="What is diabetes?">Explain diabetes <span>↗</span></button>
+                    <button type="button" class="prompt-chip" data-prompt="How can I sleep better?">Tips for better sleep <span>↗</span></button>
+                  </div>
+                  <div class="chat-messages" id="chatMessages" aria-live="polite" aria-label="Assistant conversation"></div>
+                  <form class="chat-composer" id="chatForm">
+                    <label class="sr-only" for="chatInput">Message Careflow AI</label>
+                    <input id="chatInput" type="text" placeholder="Ask a health question..." maxlength="300" autocomplete="off">
+                    <button type="submit" aria-label="Send message"><svg class="icon"><use href="#i-send"/></svg></button>
+                  </form>
+                  <p class="assistant-disclaimer"><svg class="icon"><use href="#i-shield"/></svg> AI health information · not a diagnosis. Avoid personal details.</p>
+                </section>
+
+                <section class="insight-card">
+                  <div class="insight-heading"><span class="insight-icon"><svg class="icon"><use href="#i-spark"/></svg></span><span class="section-eyebrow">A THOUGHTFUL NUDGE</span></div>
+                  <p>Two follow-ups are due this week for patients on the <strong>Heart health</strong> pathway.</p>
+                  <button class="text-button" type="button" data-nav="insights">Take a look <svg class="icon"><use href="#i-arrow"/></svg></button>
+                  <span class="insight-decoration" aria-hidden="true">✳</span>
+                </section>
+
+                <div class="privacy-note"><span><svg class="icon"><use href="#i-shield"/></svg></span><p><strong>Your workspace is private.</strong><br>This demo uses fictional patient details and stores nothing.</p></div>
+              </aside>
+            </div>
+            <footer class="page-footer"><span>Careflow <span>·</span> Thoughtful care, connected.</span><span>Demo workspace <span>·</span> Fictional data</span></footer>
+          </section>
+
+          <section class="view-section secondary-view" id="secondaryView" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow" id="secondaryEyebrow">YOUR WORKSPACE</p><h1 id="secondaryTitle">Care pathways</h1><p class="heading-subtitle" id="secondarySubtitle">Every next step, connected.</p></div>
+              <button class="button button-primary" type="button" id="secondaryAction"><svg class="icon"><use href="#i-plus"/></svg> <span>New appointment</span></button>
+            </div>
+            <div class="secondary-content" id="secondaryContent"></div>
+            <footer class="page-footer"><span>Careflow <span>·</span> Thoughtful care, connected.</span><span>Demo workspace <span>·</span> Fictional data</span></footer>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+    <div class="modal-backdrop" id="appointmentModal" hidden>
+      <section class="modal-card doctor-modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-heading"><div><span class="section-eyebrow">KEEP CARE MOVING</span><h2 id="modalTitle">New appointment</h2></div><button class="icon-button" type="button" id="closeModal" aria-label="Close dialog"><svg class="icon"><use href="#i-close"/></svg></button></div>
+        <p class="modal-description">Choose a fictional sample patient, visit type, date, and time. Suggested clinicians are demo profiles only.</p>
+        <div class="appointment-care-context" id="appointmentCareContext" hidden></div>
+        <form id="appointmentForm" class="appointment-form">
+          <input type="hidden" name="carePathway">
+          <input type="hidden" name="careApproach">
+          <label>Sample patient<select name="patientId" id="appointmentPatient" required><option value="">Loading sample patients...</option></select></label>
+          <div class="form-row"><label>Appointment type<select name="visitType" required><option>Care coordination</option><option>Primary care</option><option>Cardiology</option><option>Follow-up</option><option>Virtual check-in</option></select></label><label>Date<input type="date" name="visitDate" id="appointmentDate" required></label></div>
+          <label>Preferred time<input type="time" name="appointmentTime" value="13:00" required></label>
+          <div class="form-actions"><button class="button button-quiet" type="button" id="cancelModal">Cancel</button><button class="button button-primary" type="submit"><svg class="icon"><use href="#i-search"/></svg> <span id="appointmentSubmitLabel">Find suggested clinicians</span></button></div>
+        </form>
+        <section class="doctor-suggestions" id="doctorSuggestions" hidden aria-live="polite"></section>
+        <button class="button button-light doctor-back-button" id="doctorSuggestionsBack" type="button" hidden>Back to appointment details</button>
+      </section>
+    </div>
+  </body>
+</html>
